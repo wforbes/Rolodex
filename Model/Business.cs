@@ -43,7 +43,7 @@ namespace Rolodex.Model
         {
             if (person == null)
             {
-                throw new ArgumentNullException("Person", "Please select record from Grid or Add New");
+                throw new ArgumentNullException("Person", "Please select record from Grid");
             }
 
             if (string.IsNullOrEmpty(person.firstName))

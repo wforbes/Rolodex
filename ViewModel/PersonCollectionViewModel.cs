@@ -43,9 +43,7 @@ namespace Rolodex.ViewModel
                 OnPropertyChanged();
             }
         }
-
         
-
         public RelayCommand Add
         {
             get
@@ -57,7 +55,8 @@ namespace Rolodex.ViewModel
         {
             try
             {
-                _business.Update(SelectedPerson);
+                //_business.Update(SelectedPerson);
+                
                 PersonCollection = new ObservableCollection<Person>(_business.Get());
             }
             catch (Exception ex)

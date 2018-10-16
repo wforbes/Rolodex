@@ -1,6 +1,7 @@
 ﻿using Rolodex.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,25 @@ namespace Rolodex.View
             {
                 cv.Filter = null;
             }
+        }
+        
+        private void insertButton_Click(object sender, RoutedEventArgs e)
+        {
+            Person person = new Person();
+            person.id = 0;
+            person.firstName = firstNameTextBox.Text;
+            person.middleName = middleNameTextBox.Text;
+            person.lastName = lastNameTextBox.Text;
+            person.jobTitle = jobTitleTextBox.Text;
+            person.address = addressTextBox.Text;
+            person.city = cityTextBox.Text;
+            person.state = stateTextBox.Text;
+            person.zipCode = zipTextBox.Text;
+            person.phone = phoneTextBox.Text;
+            Business business = new Business();
+            business.Update(person);
+            dataGrid.ItemsSource = null;
+            dataGrid.ItemsSource = new ObservableCollection<Person>(business.Get());
         }
     }
 }
